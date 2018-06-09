@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?><!--自定义的简易相对布局测试布局-->
 <com.snail.customviewset.CustomSimpleRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical">
 
     <Button
+        android:layout_margin="20dip"
         android:layout_width= "wrap_content"
         android:layout_height= "wrap_content"
         app:layout_position= "left"
@@ -16,6 +17,7 @@
         android:text= "按钮1" />
 
     <Button
+        android:layout_marginLeft="5dp"
         android:layout_width= "wrap_content"
         android:layout_height= "wrap_content"
         app:layout_position= "right"
@@ -26,6 +28,7 @@
         android:text= "按钮2222222222222" />
 
     <Button
+        android:layout_marginRight="30dp"
         android:layout_width= "wrap_content"
         android:layout_height= "wrap_content"
         app:layout_position= "bottom"
@@ -36,6 +39,7 @@
         android:text= "按钮333333" />
 
     <Button
+        android:layout_margin="20dp"
         android:layout_width= "wrap_content"
         android:layout_height= "wrap_content"
         app:layout_position= "rightAndBottom"
@@ -46,6 +50,7 @@
         android:text= "按钮4" />
 
     <Button
+        android:layout_marginLeft="40dp"
         android:layout_width= "wrap_content"
         android:layout_height= "wrap_content"
         app:layout_position= "center"

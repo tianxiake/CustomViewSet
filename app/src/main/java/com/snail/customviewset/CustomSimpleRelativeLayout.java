@@ -40,7 +40,8 @@ public class CustomSimpleRelativeLayout extends ViewGroup {
             int childCount = getChildCount();
             for (int i = 0; i < childCount; i++) {
                 View child = getChildAt(i);
-                int childWidth = child.getMeasuredWidth();
+                LayoutParams lp = (LayoutParams) child.getLayoutParams();
+                int childWidth = child.getMeasuredWidth() + lp.rightMargin + lp.leftMargin;
                 measureWidth = Math.max(measureWidth, childWidth);
             }
         }
@@ -51,7 +52,8 @@ public class CustomSimpleRelativeLayout extends ViewGroup {
             int childCount = getChildCount();
             for (int i = 0; i < childCount; i++) {
                 View child = getChildAt(i);
-                int childHeight = child.getMeasuredHeight();
+                LayoutParams lp = (LayoutParams) child.getLayoutParams();
+                int childHeight = child.getMeasuredHeight() + lp.topMargin + lp.bottomMargin;
                 measureHeight = Math.max(measureHeight, childHeight);
             }
         }
@@ -73,24 +75,24 @@ public class CustomSimpleRelativeLayout extends ViewGroup {
             int position = lp.POSITION;
             switch (position) {
                 case LayoutParams.POSITION_LEFT:
-                    left = 0;
-                    top = 0;
+                    left = 0 + lp.leftMargin;
+                    top = 0 + lp.topMargin;
                     break;
                 case LayoutParams.POSITION_RIGHT:
-                    left = getWidth() - child.getMeasuredWidth();
-                    top = 0;
+                    left = getWidth() - child.getMeasuredWidth() - lp.rightMargin;
+                    top = 0 + lp.topMargin;
                     break;
                 case LayoutParams.POSITION_CENTER:
-                    left = (getWidth() - child.getMeasuredWidth()) / 2;
-                    top = (getHeight() - child.getMeasuredHeight()) / 2;
+                    left = (getWidth() - child.getMeasuredWidth()) / 2 - lp.rightMargin;
+                    top = (getHeight() - child.getMeasuredHeight()) / 2 - lp.bottomMargin;
                     break;
                 case LayoutParams.POSITION_BOTTOM:
-                    left = getWidth() - child.getMeasuredWidth();
-                    top = getHeight() - child.getMeasuredHeight();
+                    left = 0+lp.leftMargin;
+                    top = getHeight() - child.getMeasuredHeight() -lp.bottomMargin;
                     break;
                 case LayoutParams.POSITION_RIGHT_AND_BOTTOM:
-                    left = 0;
-                    top = getHeight() - child.getMeasuredHeight();
+                    left = getWidth() - child.getMeasuredWidth()-lp.rightMargin;
+                    top = getHeight() - child.getMeasuredHeight()-lp.bottomMargin;
                     break;
             }
 
@@ -127,7 +129,7 @@ public class CustomSimpleRelativeLayout extends ViewGroup {
         public static final int POSITION_RIGHT = 2;//右上
         public static final int POSITION_CENTER = 3;//居中
         public static final int POSITION_BOTTOM = 4;//左下
-        public static final int POSITION_RIGHT_AND_BOTTOM = 5;
+        public static final int POSITION_RIGHT_AND_BOTTOM = 5; //右下
         public int POSITION = POSITION_LEFT;
 
 
