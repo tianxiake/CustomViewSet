@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--自定义的流式容器布局测试布局-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:myapp="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -14,24 +15,24 @@
         android:background="#ff0000">
 
         <TextView
-            android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:background="#00ff00"
             android:text="高效工具" />
 
         <TextView
-            android:layout_margin="6dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="6dp"
             android:background="#00dddd"
             android:text="最美的段子" />
 
         <TextView
-            android:layout_margin="3dp"
-            android:background="#00ee00"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:background="#00ee00"
             android:text="我的世界" />
 
         <TextView

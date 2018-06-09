@@ -7,4 +7,14 @@
         <attr name="text_interval" format="integer" />
     </declare-styleable>
 
+    <declare-styleable name="CustomSimpleRelativeLayout">
+
+        <attr name="layout_position">
+            <enum name="left" value="1"/>
+            <enum name="right" value="2"/>
+            <enum name="center" value="3"/>
+            <enum name="bottom" value="4"/>
+            <enum name="top" value="5"/>
+        </attr>
+    </declare-styleable>
 </resources>
