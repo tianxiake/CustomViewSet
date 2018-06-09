@@ -7,6 +7,7 @@
         <attr name="text_interval" format="integer" />
     </declare-styleable>
 
+    <!--自定义的简易相对布局属性-->
     <declare-styleable name="CustomSimpleRelativeLayout">
 
         <attr name="layout_position">
@@ -14,7 +15,7 @@
             <enum name="right" value="2"/>
             <enum name="center" value="3"/>
             <enum name="bottom" value="4"/>
-            <enum name="top" value="5"/>
+            <enum name="rightAndBottom" value="5"/>
         </attr>
     </declare-styleable>
 </resources>
