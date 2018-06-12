@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         for (int i = 0; i < drawables.length; i++) {
             ImageView imageView = new ImageView(this);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             imageView.setImageResource(drawables[i]);
             myViewPager.addView(imageView);
         }

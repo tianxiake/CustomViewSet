@@ -23,14 +23,16 @@ public class MyViewPager extends ViewGroup {
     public MyViewPager(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
+        Log.d(LYJ_TAG, "init ScrollX=" + getScaleX());
     }
 
     private void init() {
         gestureDetector = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener() {
             @Override
             public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-                Log.d(LYJ_TAG, "distanceX=" + distanceX + ",distanceY=" + distanceY);
+                Log.d(LYJ_TAG, "GestureDetector distanceX=" + distanceX + ",distanceY=" + distanceY);
                 scrollBy((int) distanceX, 0);
+                Log.d(LYJ_TAG, "GestureDetector ScrollX=" + getScaleX());
                 return true;
             }
         });
@@ -58,7 +60,7 @@ public class MyViewPager extends ViewGroup {
                 int scrollX = getScrollX();
                 int pageIndex = scrollX / getWidth();
                 int offset = scrollX % getWidth();
-                Log.d(LYJ_TAG, "scrollX=" + scrollX + ",pageIndex=" + pageIndex + ",offset=" + offset);
+                Log.d(LYJ_TAG, "onTouchEvent scrollX=" + scrollX + ",pageIndex=" + pageIndex + ",offset=" + offset);
                 if (offset > getWidth() / 2) {
                     //下一页
                     pageIndex++;
