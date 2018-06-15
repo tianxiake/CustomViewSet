@@ -6,11 +6,14 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
+import android.widget.Scroller;
 
 public class MyViewPager extends ViewGroup {
 
     private static String LYJ_TAG = "LYJ_MyViewPager";
     private GestureDetector gestureDetector;
+    private Scroller scroller;
+    private OnPageChangeListener onPageChangeListener;
 
     public MyViewPager(Context context) {
         this(context, null);
@@ -27,6 +30,7 @@ public class MyViewPager extends ViewGroup {
     }
 
     private void init() {
+        scroller = new Scroller(getContext());
         gestureDetector = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener() {
             @Override
             public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
@@ -69,12 +73,35 @@ public class MyViewPager extends ViewGroup {
                     pageIndex = getChildCount() - 1;
                 }
                 getCurrentPage(pageIndex);
+                if (onPageChangeListener != null) {
+                    onPageChangeListener.onPageChange(pageIndex);
+                }
                 break;
         }
         return true;
     }
 
     public void getCurrentPage(int pageIndex) {
-        scrollTo(pageIndex * getWidth(), 0);
+//        scrollTo(pageIndex * getWidth(), 0);
+        int dx = pageIndex * getWidth() - getScrollX();
+        scroller.startScroll(getScrollX(), 0, dx, 0);
+        invalidate();
+    }
+
+    public void setOnPageChangeListener(MyViewPager.OnPageChangeListener onPageChangeListener) {
+        this.onPageChangeListener = onPageChangeListener;
+    }
+
+    @Override
+    public void computeScroll() {
+        if (scroller.computeScrollOffset()) {
+            int currX = scroller.getCurrX();
+            scrollTo(currX, 0);
+            invalidate();
+        }
+    }
+
+    public interface OnPageChangeListener {
+        void onPageChange(int pageIndex);
     }
 }
