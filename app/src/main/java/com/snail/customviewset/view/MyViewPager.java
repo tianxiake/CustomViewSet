@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Scroller;
 
@@ -14,6 +15,10 @@ public class MyViewPager extends ViewGroup {
     private GestureDetector gestureDetector;
     private Scroller scroller;
     private OnPageChangeListener onPageChangeListener;
+    private int downX = 0;
+    private int downY = 0;
+    private int dx;
+    private int dy;
 
     public MyViewPager(Context context) {
         this(context, null);
@@ -40,6 +45,40 @@ public class MyViewPager extends ViewGroup {
                 return true;
             }
         });
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        boolean result = false;
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                downX = (int) ev.getX();
+                downY = (int) ev.getY();
+                break;
+            case MotionEvent.ACTION_MOVE:
+                int moveX = (int) ev.getX();
+                int moveY = (int) ev.getY();
+                dx = moveX - downX;
+                dy = moveY - downY;
+                if (Math.abs(dx) > Math.abs(dy)) {
+                    result = true;
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                break;
+            default:
+                break;
+        }
+        return result;
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        for (int i = 0; i < getChildCount(); i++) {
+            View child = getChildAt(i);
+            child.measure(widthMeasureSpec, heightMeasureSpec);
+        }
     }
 
     @Override
