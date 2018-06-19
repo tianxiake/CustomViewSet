@@ -1,4 +1,4 @@
-package com.snail.customviewset;
+package com.snail.customviewset.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -6,6 +6,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.snail.customviewset.R;
 
 public class CustomSimpleRelativeLayout extends ViewGroup {
     private static final String LYJ_TAG = "SimpleRelativeLayout";

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff0000"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_add_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="随机添加图片" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.snail.customviewset.view.WaterFallLayout
+            android:id="@+id/wf_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:columns="3"
+            app:horizontal_space="20px"
+            app:vertical_space="20px">
+
+        </com.snail.customviewset.view.WaterFallLayout>
+    </ScrollView>
+
+</LinearLayout>
