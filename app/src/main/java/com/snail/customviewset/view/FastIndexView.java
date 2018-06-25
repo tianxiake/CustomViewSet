@@ -12,7 +12,7 @@ import android.view.View;
 
 public class FastIndexView extends View {
 
-    private static final String TAG = "FastIndexView";
+    private static final String TAG = "LYJ_FastIndexView";
     private Paint paint;
     private int width;
     private int height;
