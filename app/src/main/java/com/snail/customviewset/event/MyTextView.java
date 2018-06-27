@@ -6,6 +6,7 @@ import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.widget.TextView;
 
 /**
  * @author yongjie on 2018/6/19.
@@ -35,10 +36,7 @@ public class MyTextView extends AppCompatTextView {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         Log.d(LYJ_TAG, "onTouchEvent. Action=" + event.getAction());
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            return true;
-        }
-        return super.onTouchEvent(event);
+        return true;
     }
 
 }

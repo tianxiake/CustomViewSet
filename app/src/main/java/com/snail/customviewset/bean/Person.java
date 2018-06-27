@@ -1,5 +1,7 @@
 package com.snail.customviewset.bean;
 
+import com.snail.customviewset.util.PinyinUtil;
+
 /**
  * @author yongjie on 2018/6/26.
  */
@@ -10,6 +12,7 @@ public class Person implements Comparable<Person> {
 
     public Person(String name) {
         this.name = name;
+        this.pinyin = PinyinUtil.getPinYin(name);
     }
 
     @Override

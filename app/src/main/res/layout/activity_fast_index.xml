@@ -12,7 +12,7 @@
     <com.snail.customviewset.view.FastIndexView
         android:id="@+id/fiv_indicator"
         android:background="#00bbcc"
-        android:layout_width="25dp"
+        android:layout_width="50dp"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true" />
 </RelativeLayout>
