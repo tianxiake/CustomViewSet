@@ -20,7 +20,6 @@ public class ViewPagerActivity extends AppCompatActivity {
 
     private static String LYJ_TAG = "LYJ_MainActivity";
     private int[] drawables = new int[]{
-            R.drawable.drawable_one,
             R.drawable.drawable_two,
             R.drawable.drawable_three,
             R.drawable.drawable_four

@@ -18,7 +18,8 @@ public class MainActivity extends AppCompatActivity {
     private String[] contents = new String[]{
             "ViewPagerActivity",
             "TouchEventTestActivity",
-            "FastIndexViewActivity"
+            "FastIndexViewActivity",
+            "LoadDataViewActivity"
     };
     /**
      * 这个数组和上面的数组具有一一对应的关系
@@ -26,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
     private Class[] clazz = new Class[]{
             ViewPagerActivity.class,
             TouchEventTestActivity.class,
-            FastIndexActivity.class
+            FastIndexActivity.class,
+            LoadDataViewActivity.class
     };
 
     private ArrayAdapter<String> arrayAdapter;

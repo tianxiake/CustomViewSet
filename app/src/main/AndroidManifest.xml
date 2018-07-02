@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".ViewPagerActivity" />
         <activity android:name=".TouchEventTestActivity" />
-        <activity android:name=".FastIndexActivity"></activity>
+        <activity android:name=".FastIndexActivity" />
+        <activity android:name=".LoadDataViewActivity"></activity>
     </application>
 
 </manifest>
